@@ -2,7 +2,7 @@
 
 A production-ready Instagram clone built using **modern full-stack architecture**, scalable backend design, and feature-based frontend structure.
 
-🌐 **Live App:** https://full-stack-insta.onrender.com
+🌐 **Live App:** https://full-stack-insta.onrender.com/login
 📦 **Repository:** https://github.com/Notanormaldev/Full-stack-insta
 
 ---
