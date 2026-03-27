@@ -32,7 +32,7 @@ function Feed() {
       <div className="right">
           <Nav/>
         <div className="posts">
-        {feed.map((p)=>{
+        {feed?.map((p)=>{
            return <Post key={p._id} user={p.user} post={p} handlelikepost={handlelikepost} handleunlikepost={handleunlikepost} />
         })}
         </div>  
