@@ -16,4 +16,7 @@ app.use(cors({
 app.use('/api/auth',userRoute)
 app.use('/api/posts',postRoute)
 app.use('/api/ff',followroute)
+app.use("*name",(req,res)=>{
+    res.sendFile('../public/index.html')
+})
 module.exports = app
