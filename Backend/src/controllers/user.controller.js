@@ -34,7 +34,11 @@ async function userregister(req,res){
         username:user.username
     },process.env.JWT)
 
-    res.cookie('token',token)
+    res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,        
+  sameSite: "None"     
+});
 
     res.status(201).json({
         msg:"register sucess",
@@ -71,7 +75,11 @@ async function userlogin(req,res){
             msg:"invalid pass"
         })
     }
-    res.cookie("token",token)
+   res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,        
+  sameSite: "None"     
+});
     res.status(200).json({
         msg:"login sucess",
         user

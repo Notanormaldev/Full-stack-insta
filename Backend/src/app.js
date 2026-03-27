@@ -12,7 +12,7 @@ app.use(express.static('./public'))
 app.use(cookie())
 app.use(cors({
     credentials:true,
-    origin:'http://localhost:5173'
+    origin:'https://full-stack-insta.onrender.com/'
 }))
 app.use('/api/auth',userRoute)
 app.use('/api/posts',postRoute)
