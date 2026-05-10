@@ -10,7 +10,9 @@ import { usefollow } from '../hooks/usefollow'
 
 function Followlist() {
    const {followers , following , handlefollow,handelotheruser,users,followtheuser} = usefollow()
-
+   const followerList = Array.isArray(followers) ? followers : []
+   const followingList = Array.isArray(following) ? following : []
+   const otherUsers = Array.isArray(users) ? users : []
 
    useEffect(()=>{
       handlefollow(),handelotheruser()
@@ -24,7 +26,7 @@ function Followlist() {
      <div className="follower">
         <h1>Followers</h1>
         <div className="fl">
-               {followers?.map((f,id)=>{
+               {followerList.map((f,id)=>{
                   return <Follower key={id} follower={f}/>
                })}
         </div>
@@ -34,7 +36,7 @@ function Followlist() {
      <div className="following">
         <h1>Following</h1>
         <div className="fl">
-          {following.map((f,id)=>{
+          {followingList.map((f,id)=>{
             return <Following key={id} following={f}/>
           })}
           
@@ -45,7 +47,7 @@ function Followlist() {
        <div className="otheruser">
         <h1>Otheruser</h1>
         <div className="fl">
-         {users.map((o,id)=><Otheruser key={id} otheruser={o} followtheuser={followtheuser}/>)}
+         {otherUsers.map((o,id)=><Otheruser key={id} otheruser={o} followtheuser={followtheuser}/>)}
         </div>
      </div>
 

@@ -17,17 +17,13 @@ function Feed() {
 
 
 
-   if(loading || !feed){
+  const posts = Array.isArray(feed) ? feed : []
+
+   if(loading){
     return (<main>
         <h1>Feed is loading...</h1>
     </main>)
    }
-
-  // console.log(feed);
-  
-    
-    
-  const posts = Array.isArray(feed) ? feed : []
 
   return (
     <div className='feed'>
@@ -37,9 +33,9 @@ function Feed() {
       <div className="right">
           <Nav/>
         <div className="posts">
-        {posts.map((p)=>{
+        {posts.length ? posts.map((p)=>{
            return <Post key={p._id} user={p.user} post={p} handlelikepost={handlelikepost} handleunlikepost={handleunlikepost} />
-        })}
+        }) : <p>No posts to show yet.</p>}
         </div>  
       </div>
     </div>
