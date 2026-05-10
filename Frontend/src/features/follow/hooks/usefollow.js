@@ -19,8 +19,13 @@ export const usefollow=()=>{
          setfollowing(res.following)
     }
     async function handelotheruser(){
-        const res = await otheruserapi()
-        setusers(res.otheruser)
+        try {
+            const res = await otheruserapi()
+            setusers(res.otheruser || [])
+        } catch (error) {
+            console.error("Failed to fetch other users:", error)
+            setusers([])
+        }
     }
 
     async function followtheuser(userid){

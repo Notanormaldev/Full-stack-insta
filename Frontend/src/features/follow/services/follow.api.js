@@ -23,8 +23,13 @@ export async function unfollow(userid){
 
 
 export async function otheruserapi(){
-    const res =await api.get('/otheruser')
-    return res.data
+    try {
+        const res = await api.get('/api/ff/otheruser')
+        return res.data
+    } catch (error) {
+        console.error("Failed to fetch other users:", error)
+        throw error
+    }
 }
 
 
