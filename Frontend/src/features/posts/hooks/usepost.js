@@ -9,41 +9,54 @@ export const usepost =()=>{
 
     async function handlefeed(){
         setloading(true)
-        const res = await getfeed()
-        setfeed(res.posts.reverse())
-        setloading(false)
+        try {
+            const res = await getfeed()
+            const posts = Array.isArray(res?.posts) ? res.posts : []
+            setfeed(posts.reverse())
+        } catch (error) {
+            console.error("Feed load failed:", error)
+            setfeed([])
+        } finally {
+            setloading(false)
+        }
     }
 
     async function handlecreatepost(imagefile,caption){
         setloading(true)
-
-        
-        const res =await createfeed(imagefile,caption) 
-       
-        setfeed([res.post,...feed])
-         
-        setloading(false)
+        try {
+            const res = await createfeed(imagefile,caption)
+            setfeed([res.post, ...(Array.isArray(feed) ? feed : [])])
+        } catch (error) {
+            console.error("Create post failed:", error)
+        } finally {
+            setloading(false)
+        }
     }
     
    async function handlelikepost(postid){
        setloading(true)
-    const res = await likepost(postid)
-    await handlefeed()
-    setloading(false)
+       try {
+           await likepost(postid)
+           await handlefeed()
+       } catch (error) {
+           console.error("Like post failed:", error)
+       } finally {
+           setloading(false)
+       }
    }
   
 
    async function handleunlikepost(postid){  
        setloading(true)
-    const res = await unlikepost(postid)
-   await handlefeed()
-   setloading(false)
-   
+       try {
+           await unlikepost(postid)
+           await handlefeed()
+       } catch (error) {
+           console.error("Unlike post failed:", error)
+       } finally {
+           setloading(false)
+       }
    }
-
-    useEffect(()=>{
-         handlefeed()
-    },[])
 
     return({handlefeed,loading,feed,post,handlecreatepost,handlelikepost,handleunlikepost})
 

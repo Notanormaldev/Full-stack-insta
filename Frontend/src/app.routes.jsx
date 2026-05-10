@@ -3,6 +3,7 @@ import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
 import Feed from "./features/posts/pages/Feed";
 import Createpost from "./features/posts/pages/Createpost";
+import RouteError from "./features/shared/RouteError";
 import { useAuth } from "./features/auth/hooks/auth.hook";
 
 const ProtectedRoute = ({ children }) => {
@@ -24,18 +25,22 @@ const PublicRoute = ({ children }) => {
 export const router = createBrowserRouter([
     {
         path: '/login',
-        element: <PublicRoute><Login /></PublicRoute>
+        element: <PublicRoute><Login /></PublicRoute>,
+        errorElement: <RouteError />
     },
     {
         path: '/register',
-        element: <PublicRoute><Register /></PublicRoute>
+        element: <PublicRoute><Register /></PublicRoute>,
+        errorElement: <RouteError />
     },
     {
         path: '/',
-        element: <ProtectedRoute><Feed /></ProtectedRoute>
+        element: <ProtectedRoute><Feed /></ProtectedRoute>,
+        errorElement: <RouteError />
     },
     {
         path: '/createpost',
-        element: <ProtectedRoute><Createpost /></ProtectedRoute>
+        element: <ProtectedRoute><Createpost /></ProtectedRoute>,
+        errorElement: <RouteError />
     }
 ]);

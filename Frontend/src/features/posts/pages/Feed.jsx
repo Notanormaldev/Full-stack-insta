@@ -27,6 +27,8 @@ function Feed() {
   
     
     
+  const posts = Array.isArray(feed) ? feed : []
+
   return (
     <div className='feed'>
       <div className="left">
@@ -35,7 +37,7 @@ function Feed() {
       <div className="right">
           <Nav/>
         <div className="posts">
-        {feed.map((p)=>{
+        {posts.map((p)=>{
            return <Post key={p._id} user={p.user} post={p} handlelikepost={handlelikepost} handleunlikepost={handleunlikepost} />
         })}
         </div>  
