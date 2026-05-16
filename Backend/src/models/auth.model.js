@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
     bio:String,
     profile_pic:{
         type:String,
-        default:'https://ik.imagekit.io/r5nxypvid/543c3130fba0be6cfda40c0db5fe74c1.webp?updatedAt=1771148318400'
+        default:'https://ik.imagekit.io/r5nxypvid/image.png?updatedAt=1778947673109'
     }
 })
 
