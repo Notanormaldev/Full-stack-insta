@@ -8,7 +8,7 @@ function Otheruser({otheruser,followtheuser}) {
   return (
       <div className='otherusercompo'>
                <div className="user-part">
-            <img src="https://ik.imagekit.io/r5nxypvid/543c3130fba0be6cfda40c0db5fe74c1.webp?updatedAt=1771148318400" alt="" />
+            <img src="https://ik.imagekit.io/r5nxypvid/image.png?updatedAt=1778947673109" alt="" />
             <h1>{otheruser}</h1>
            </div>
             <button onClick={()=>followtheuser(otheruser)}>Follow</button>

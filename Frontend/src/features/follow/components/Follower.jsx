@@ -6,7 +6,7 @@ function Follower({follower}) {
   
   return (
     <div className='follower-compo'>
-           <img src="https://ik.imagekit.io/r5nxypvid/543c3130fba0be6cfda40c0db5fe74c1.webp?updatedAt=1771148318400" alt="" />
+           <img src="https://ik.imagekit.io/r5nxypvid/image.png?updatedAt=1778947673109" alt="" />
             <h1>{follower}</h1>
     </div>
   )
